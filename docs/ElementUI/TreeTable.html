@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TreeTable 树形表格</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.aca0093d.css" as="style"><link rel="preload" href="/assets/js/app.55ccd5d9.js" as="script"><link rel="preload" href="/assets/js/2.637632f4.js" as="script"><link rel="preload" href="/assets/js/16.e9236560.js" as="script"><link rel="prefetch" href="/assets/js/10.ffda7a69.js"><link rel="prefetch" href="/assets/js/11.c41d751a.js"><link rel="prefetch" href="/assets/js/12.8e6a97f4.js"><link rel="prefetch" href="/assets/js/13.bc89aa85.js"><link rel="prefetch" href="/assets/js/14.aef50d2d.js"><link rel="prefetch" href="/assets/js/15.4261a36c.js"><link rel="prefetch" href="/assets/js/17.71f61431.js"><link rel="prefetch" href="/assets/js/18.0f0f72c9.js"><link rel="prefetch" href="/assets/js/19.1465cfb7.js"><link rel="prefetch" href="/assets/js/20.ddbc34e1.js"><link rel="prefetch" href="/assets/js/21.513053ce.js"><link rel="prefetch" href="/assets/js/22.30829fdf.js"><link rel="prefetch" href="/assets/js/23.b0a7b5db.js"><link rel="prefetch" href="/assets/js/24.d63578f2.js"><link rel="prefetch" href="/assets/js/25.96a4b0e4.js"><link rel="prefetch" href="/assets/js/3.72bb0366.js"><link rel="prefetch" href="/assets/js/4.40cff1a6.js"><link rel="prefetch" href="/assets/js/5.dcf430f4.js"><link rel="prefetch" href="/assets/js/6.906f9ce6.js"><link rel="prefetch" href="/assets/js/7.d077f450.js"><link rel="prefetch" href="/assets/js/8.70f9ef08.js"><link rel="prefetch" href="/assets/js/9.610fba36.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.aca0093d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="treetable-树形表格"><a href="#treetable-树形表格" class="header-anchor">#</a> TreeTable 树形表格</h1> <p>基于 <code>el-table</code> 封装的 <code>tree-table</code> , 解决了 <code>el-table</code> 树形结构的两个问题:</p> <ol><li>没有展开到 <code>level</code> 级的功能</li> <li>表头的 <code>checkbox</code> 只能控制第一层级的 <code>checkbox</code> , 无法控制子级</li></ol> <p>封装思路: <a href="https://tszv.now.sh/pages/3b3de3/" target="_blank" rel="noopener noreferrer">基于 ElementUI 封装的 TreeTable | Henry<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://github.com/HenryTSZ/vuepress-element-extend/blob/master/docs/.vuepress/components/TreeTable.vue" target="_blank" rel="noopener noreferrer">源码<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="基础用法"><a href="#基础用法" class="header-anchor">#</a> 基础用法</h2> <p>参考 <a href="/ElementUI/BaseTable.html">BaseTable</a></p> <h2 id="展开到-level-级"><a href="#展开到-level-级" class="header-anchor">#</a> 展开到 <code>level</code> 级</h2> <p>适用于需要展开层级时使用</p> <p>:::demo 通过 <code>level</code> 设置展开层级, <code>Number</code> , <code>0</code> : 展开全部, <code>1</code> : 展开到一级, ...; <code>@max-level</code> 获取最大层级. 通过 <code>refreshLevel</code> 来重新渲染展开折叠: [String, Number], 有时候在 <code>level</code> 不变的情况下需要重新渲染展开折叠</p> <div class="language-html extra-class"><pre class="language-html"><code>展开到 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-input-number</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>level<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>maxLevel<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-input-number</span><span class="token punctuation">&gt;</span></span> 级
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tree-table</span> <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:columns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>columns<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>level<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@max-level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>getMaxLevel<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tree-table</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        level<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        maxLevel<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        data<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-02'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1518 弄'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-04'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1517 弄'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span><span class="token punctuation">,</span>
+            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token number">31</span><span class="token punctuation">,</span>
+                date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span>
+                date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span><span class="token punctuation">,</span>
+                children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                  <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token number">321</span><span class="token punctuation">,</span>
+                    date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                    address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span>
+                  <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-03'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1516 弄'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        columns<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'名字'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'name'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'日期'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'date'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'住址'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'address'</span><span class="token punctuation">,</span>
+            width<span class="token operator">:</span> <span class="token string">'300px'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">getMaxLevel</span><span class="token punctuation">(</span><span class="token parameter">maxLevel</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>maxLevel <span class="token operator">=</span> maxLevel
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>:::</p> <h2 id="全选"><a href="#全选" class="header-anchor">#</a> 全选</h2> <p>适用于需要选择层级时使用.</p> <p>::: demo <code>check-strictly</code> : <code>Boolean</code> , 同 <code>el-tree</code> , 在显示复选框的情况下, 是否严格的遵循父子不互相关联的做法, 默认为 <code>false</code> ; <code>check-all</code> : <code>Boolean</code> , 点击表头的多选框时, 是否影响全部数据, 默认为 <code>true</code></p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">&gt;</span></span>check-strictly: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-switch</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>checkStrictly<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-switch</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">&gt;</span></span>check-all: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-switch</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>checkAll<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-switch</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tree-table</span>
+  <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:columns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>columns<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:check-strictly</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>checkStrictly<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:check-all</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>checkAll<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">default-expand-all</span>
+<span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tree-table</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        checkStrictly<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        checkAll<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        data<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-02'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1518 弄'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-04'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1517 弄'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span><span class="token punctuation">,</span>
+            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token number">31</span><span class="token punctuation">,</span>
+                date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span>
+                date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span><span class="token punctuation">,</span>
+                children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                  <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token number">321</span><span class="token punctuation">,</span>
+                    date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                    address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span>
+                  <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-03'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1516 弄'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        columns<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> <span class="token string">'selection'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'名字'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'name'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'日期'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'date'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'住址'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'address'</span><span class="token punctuation">,</span>
+            width<span class="token operator">:</span> <span class="token string">'300px'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>:::</p> <h2 id="默认选中"><a href="#默认选中" class="header-anchor">#</a> 默认选中</h2> <p>:::demo 通过传入 <code>current-node-key</code> 和 <code>default-checked-keys</code> 设置默认选中, 必须传入 <code>row-key</code> , 默认为 <code>id</code> ; 或者为 <code>clear</code>, 清空选中. <code>default-checked-keys</code> 受 <code>check-strictly</code> 的影响</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button-group</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>setChecked<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>设置勾选<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>setCurrent<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>设置选中<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>clearChecked<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>清空勾选<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>clearCurrent<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>清空选中<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button-group</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>tc<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>check-strictly: true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tree-table</span>
+  <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:columns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>columns<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:default-checked-keys</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>defaultCheckedKeys<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:current-node-key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>currentNodeKey<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">highlight-current-row</span>
+  <span class="token attr-name">default-expand-all</span>
+  <span class="token attr-name">check-strictly</span>
+<span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tree-table</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>tc<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>check-strictly: false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tree-table</span>
+  <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:columns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>columns<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:default-checked-keys</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>defaultCheckedKeys<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:current-node-key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>currentNodeKey<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">highlight-current-row</span>
+  <span class="token attr-name">default-expand-all</span>
+<span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tree-table</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        data<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-02'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1518 弄'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-04'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1517 弄'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span><span class="token punctuation">,</span>
+            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token number">31</span><span class="token punctuation">,</span>
+                date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span>
+                date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span><span class="token punctuation">,</span>
+                children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                  <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token number">321</span><span class="token punctuation">,</span>
+                    date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                    address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span>
+                  <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-03'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1516 弄'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        columns<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> <span class="token string">'selection'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'名字'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'name'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'日期'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'date'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'住址'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'address'</span><span class="token punctuation">,</span>
+            width<span class="token operator">:</span> <span class="token string">'300px'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        defaultCheckedKeys<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        currentNodeKey<span class="token operator">:</span> <span class="token number">31</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">setChecked</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>defaultCheckedKeys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function">setCurrent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>currentNodeKey <span class="token operator">=</span> <span class="token number">31</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function">clearChecked</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>defaultCheckedKeys <span class="token operator">=</span> <span class="token string">'clear'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function">clearCurrent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>currentNodeKey <span class="token operator">=</span> <span class="token string">'clear'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>:::</p> <h2 id="设置-selectable-的选择"><a href="#设置-selectable-的选择" class="header-anchor">#</a> 设置 selectable 的选择</h2> <p>当设置 <code>selectable</code> 后, 如果子级 <code>CheckBox</code> 不可勾选, 选中父级后, 子级仍是不可选并且未选中的状态</p> <p>::: demo 由于处理子级时的 <code>index</code> 是该子级在父级下的 <code>index</code>, 而不是在表格的 <code>$index</code>, 故设置 <code>selectable</code> 时只能使用第一个参数: <code>row</code>, 而无法使用第二个参数: <code>index</code></p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tree-table</span> <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:columns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>columns<span class="token punctuation">&quot;</span></span> <span class="token attr-name">default-expand-all</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tree-table</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        data<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-02'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1518 弄'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-04'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1517 弄'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span><span class="token punctuation">,</span>
+            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token number">31</span><span class="token punctuation">,</span>
+                date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span>
+                date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span><span class="token punctuation">,</span>
+                children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                  <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token number">321</span><span class="token punctuation">,</span>
+                    date<span class="token operator">:</span> <span class="token string">'2016-05-01'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+                    address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1519 弄'</span>
+                  <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+            date<span class="token operator">:</span> <span class="token string">'2016-05-03'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'王小虎'</span><span class="token punctuation">,</span>
+            address<span class="token operator">:</span> <span class="token string">'上海市普陀区金沙江路 1516 弄'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        columns<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> <span class="token string">'selection'</span><span class="token punctuation">,</span>
+            <span class="token function">selectable</span><span class="token punctuation">(</span><span class="token parameter">row</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">return</span> row<span class="token punctuation">.</span>id <span class="token operator">!==</span> <span class="token number">32</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'名字'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'name'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'日期'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'date'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'住址'</span><span class="token punctuation">,</span>
+            prop<span class="token operator">:</span> <span class="token string">'address'</span><span class="token punctuation">,</span>
+            width<span class="token operator">:</span> <span class="token string">'300px'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>:::</p> <h2 id="attributes"><a href="#attributes" class="header-anchor">#</a> Attributes</h2> <table><thead><tr><th>参数</th> <th>说明</th> <th>类型</th> <th>可选值</th> <th>默认值</th></tr></thead> <tbody><tr><td>data</td> <td>显示的数据</td> <td>array</td> <td>—</td> <td>—</td></tr> <tr><td>columns</td> <td>列属性集合, 具体看下表</td> <td>array</td> <td>—</td> <td>—</td></tr> <tr><td>level</td> <td>展开层级</td> <td>number</td> <td>0: 展开全部, 1: 展开到一级, ...</td> <td>1</td></tr> <tr><td>refresh-level</td> <td>重新渲染展开折叠, 有时候在 level 不变的情况下需要重新渲染展开折叠</td> <td>string, number</td> <td>—</td> <td>—</td></tr> <tr><td>check-strictly</td> <td>在显示复选框的情况下, 是否严格的遵循父子不互相关联的做法</td> <td>boolean</td> <td>—</td> <td>false</td></tr> <tr><td>check-all</td> <td>点击表头的多选框时, 是否影响全部数据</td> <td>boolean</td> <td>—</td> <td>true</td></tr> <tr><td>props</td> <td>统一配置 <code>columns</code> 的 <code>prop</code> 及 <code>label</code></td> <td>object</td> <td>—</td> <td><code>{ prop: 'prop', label: 'label' }</code></td></tr> <tr><td>focus-row</td> <td>自动聚焦行</td> <td>number</td> <td>—</td> <td>0</td></tr> <tr><td>focus-col</td> <td>自动聚焦列</td> <td>number</td> <td>—</td> <td>0</td></tr> <tr><td>current-node-key</td> <td>当前选中的节点, 必须设置 <code>row-key</code>; 或者为 <code>clear</code>, 清空选中</td> <td>string, number</td> <td>—</td> <td>—</td></tr> <tr><td>default-checked-keys</td> <td>默认勾选的节点的 <code>key</code> 的数组, 必须设置 <code>row-key</code>; 或者为 <code>clear</code>, 清空选中</td> <td>array, string</td> <td>—</td> <td>—</td></tr> <tr><td>height</td> <td>Table 的高度, 默认为自动高度. 如果 height 为 number 类型, 单位 px; 如果 height 为 string 类型, 则这个高度会设置为 Table 的 style.height 的值, Table 的高度会受控于外部样式.</td> <td>string/number</td> <td>—</td> <td>—</td></tr> <tr><td>max-height</td> <td>Table 的最大高度. 合法的值为数字或者单位为 px 的高度.</td> <td>string/number</td> <td>—</td> <td>—</td></tr> <tr><td>stripe</td> <td>是否为斑马纹 table</td> <td>boolean</td> <td>—</td> <td>false</td></tr> <tr><td>border</td> <td>是否带有纵向边框</td> <td>boolean</td> <td>—</td> <td>false</td></tr> <tr><td>size</td> <td>Table 的尺寸</td> <td>string</td> <td>medium / small / mini</td> <td>—</td></tr> <tr><td>fit</td> <td>列的宽度是否自撑开</td> <td>boolean</td> <td>—</td> <td>true</td></tr> <tr><td>show-header</td> <td>是否显示表头</td> <td>boolean</td> <td>—</td> <td>true</td></tr> <tr><td>highlight-current-row</td> <td>是否要高亮当前行</td> <td>boolean</td> <td>—</td> <td>false</td></tr> <tr><td>current-row-key</td> <td>当前行的 key, 只写属性</td> <td>String, Number</td> <td>—</td> <td>—</td></tr> <tr><td>row-class-name</td> <td>行的 className 的回调方法, 也可以使用字符串为所有行设置一个固定的 className.</td> <td>Function({row, rowIndex})/String</td> <td>—</td> <td>—</td></tr> <tr><td>row-style</td> <td>行的 style 的回调方法, 也可以使用一个固定的 Object 为所有行设置一样的 Style.</td> <td>Function({row, rowIndex})/Object</td> <td>—</td> <td>—</td></tr> <tr><td>cell-class-name</td> <td>单元格的 className 的回调方法, 也可以使用字符串为所有单元格设置一个固定的 className.</td> <td>Function({row, column, rowIndex, columnIndex})/String</td> <td>—</td> <td>—</td></tr> <tr><td>cell-style</td> <td>单元格的 style 的回调方法, 也可以使用一个固定的 Object 为所有单元格设置一样的 Style.</td> <td>Function({row, column, rowIndex, columnIndex})/Object</td> <td>—</td> <td>—</td></tr> <tr><td>header-row-class-name</td> <td>表头行的 className 的回调方法, 也可以使用字符串为所有表头行设置一个固定的 className.</td> <td>Function({row, rowIndex})/String</td> <td>—</td> <td>—</td></tr> <tr><td>header-row-style</td> <td>表头行的 style 的回调方法, 也可以使用一个固定的 Object 为所有表头行设置一样的 Style.</td> <td>Function({row, rowIndex})/Object</td> <td>—</td> <td>—</td></tr> <tr><td>header-cell-class-name</td> <td>表头单元格的 className 的回调方法, 也可以使用字符串为所有表头单元格设置一个固定的 className.</td> <td>Function({row, column, rowIndex, columnIndex})/String</td> <td>—</td> <td>—</td></tr> <tr><td>header-cell-style</td> <td>表头单元格的 style 的回调方法, 也可以使用一个固定的 Object 为所有表头单元格设置一样的 Style.</td> <td>Function({row, column, rowIndex, columnIndex})/Object</td> <td>—</td> <td>—</td></tr> <tr><td>row-key</td> <td>行数据的 Key, 用来优化 Table 的渲染; 在使用 reserve-selection 功能与显示树形数据时, 该属性是必填的. 类型为 String 时, 支持多层访问: <code>user.info.id</code> , 但不支持 <code>user.info[0].id</code> , 此种情况请使用 <code>Function</code> .</td> <td>Function(row)/String</td> <td>—</td> <td>id</td></tr> <tr><td>empty-text</td> <td>空数据时显示的文本内容, 也可以通过 <code>slot=&quot;empty&quot;</code> 设置</td> <td>String</td> <td>—</td> <td>暂无数据</td></tr> <tr><td>default-expand-all</td> <td>是否默认展开所有行, 当 Table 包含展开行存在或者为树形表格时有效</td> <td>Boolean</td> <td>—</td> <td>false</td></tr> <tr><td>expand-row-keys</td> <td>可以通过该属性设置 Table 目前的展开行, 需要设置 row-key 属性才能使用, 该属性为展开行的 keys 数组.</td> <td>Array</td> <td>—</td> <td></td></tr> <tr><td>default-sort</td> <td>默认的排序列的 prop 和顺序. 它的 <code>prop</code> 属性指定默认的排序的列, <code>order</code> 指定默认排序的顺序</td> <td>Object</td> <td><code>order</code> : ascending, descending</td> <td>如果只指定了 <code>prop</code> , 没有指定 <code>order</code> , 则默认顺序是 ascending</td></tr> <tr><td>tooltip-effect</td> <td>tooltip <code>effect</code> 属性</td> <td>String</td> <td>dark/light</td> <td></td></tr> <tr><td>show-summary</td> <td>是否在表尾显示合计行</td> <td>Boolean</td> <td>—</td> <td>false</td></tr> <tr><td>sum-text</td> <td>合计行第一列的文本</td> <td>String</td> <td>—</td> <td>合计</td></tr> <tr><td>summary-method</td> <td>自定义的合计计算方法</td> <td>Function({ columns, data })</td> <td>—</td> <td>—</td></tr> <tr><td>span-method</td> <td>合并行或列的计算方法</td> <td>Function({ row, column, rowIndex, columnIndex })</td> <td>—</td> <td>—</td></tr> <tr><td>select-on-indeterminate</td> <td>在多选表格中, 当仅有部分行被选中时, 点击表头的多选框时的行为. 若为 true, 则选中所有行; 若为 false, 则取消选择所有行</td> <td>Boolean</td> <td>—</td> <td>true</td></tr> <tr><td>indent</td> <td>展示树形数据时, 树节点的缩进</td> <td>Number</td> <td>—</td> <td>16</td></tr> <tr><td>lazy</td> <td>是否懒加载子节点数据</td> <td>Boolean</td> <td>—</td> <td>—</td></tr> <tr><td>load</td> <td>加载子节点数据的函数, lazy 为 true 时生效, 函数第二个参数包含了节点的层级信息</td> <td>Function(row, treeNode, resolve)</td> <td>—</td> <td>—</td></tr> <tr><td>tree-props</td> <td>渲染嵌套数据的配置选项</td> <td>Object</td> <td>—</td> <td>{ hasChildren: 'hasChildren', children: 'children' }</td></tr></tbody></table> <h3 id="columns-每项"><a href="#columns-每项" class="header-anchor">#</a> columns 每项</h3> <table><thead><tr><th>参数</th> <th>说明</th> <th>类型</th> <th>可选值</th> <th>默认值</th></tr></thead> <tbody><tr><td><a href="/ElementUI/EditableElements.html#item">EditableElements - item</a></td> <td>与 EditableElements 一样</td> <td>—</td> <td>—</td> <td>—</td></tr> <tr><td>editable</td> <td>是否可编辑</td> <td>boolean</td> <td>—</td> <td>false</td></tr> <tr><td>editable-method</td> <td>自定义是否可编辑</td> <td>Function(row, column, cellValue, index), 返回 boolean</td> <td>—</td> <td>—</td></tr> <tr><td>type</td> <td>不可编辑时对应列的类型. 如果设置了 <code>selection</code> 则显示多选框; 如果设置了 <code>index</code> 则显示该行的索引(从 1 开始计算); 如果设置了 <code>expand</code> 则显示为一个可展开的按钮</td> <td>string</td> <td>selection/index/expand</td> <td>—</td></tr> <tr><td>column-key</td> <td>column 的 key, 如果需要使用 filter-change 事件, 则需要此属性标识是哪个 column 的筛选条件</td> <td>string</td> <td>—</td> <td>—</td></tr> <tr><td>label</td> <td>显示的标题</td> <td>string</td> <td>—</td> <td>—</td></tr> <tr><td>prop</td> <td>对应列内容的字段名, 也可以使用 property 属性</td> <td>string</td> <td>—</td> <td>—</td></tr> <tr><td>width</td> <td>对应列的宽度</td> <td>string</td> <td>—</td> <td>—</td></tr> <tr><td>min-width</td> <td>对应列的最小宽度, 与 width 的区别是 width 是固定的, min-width 会把剩余宽度按比例分配给设置了 min-width 的列</td> <td>string</td> <td>—</td> <td>—</td></tr> <tr><td>fixed</td> <td>列是否固定在左侧或者右侧, true 表示固定在左侧</td> <td>string, boolean</td> <td>true, left, right</td> <td>—</td></tr> <tr><td>render-header</td> <td>列标题 Label 区域渲染使用的 Function</td> <td>Function(h, { column, $index })</td> <td>—</td> <td>—</td></tr> <tr><td>sortable</td> <td>对应列是否可以排序, 如果设置为 'custom', 则代表用户希望远程排序, 需要监听 Table 的 sort-change 事件</td> <td>boolean, string</td> <td>true, false, 'custom'</td> <td>false</td></tr> <tr><td>sort-method</td> <td>对数据进行排序的时候使用的方法, 仅当 sortable 设置为 true 的时候有效, 需返回一个数字, 和 Array.sort 表现一致</td> <td>Function(a, b)</td> <td>—</td> <td>—</td></tr> <tr><td>sort-by</td> <td>指定数据按照哪个属性进行排序, 仅当 sortable 设置为 true 且没有设置 sort-method 的时候有效. 如果 sort-by 为数组, 则先按照第 1 个属性排序, 如果第 1 个相等, 再按照第 2 个排序, 以此类推</td> <td>String/Array/Function(row, index)</td> <td>—</td> <td>—</td></tr> <tr><td>sort-orders</td> <td>数据在排序时所使用排序策略的轮转顺序, 仅当 sortable 为 true 时有效. 需传入一个数组, 随着用户点击表头, 该列依次按照数组中元素的顺序进行排序</td> <td>array</td> <td>数组中的元素需为以下三者之一: <code>ascending</code> 表示升序, <code>descending</code> 表示降序, <code>null</code> 表示还原为原始顺序</td> <td>['ascending', 'descending', null]</td></tr> <tr><td>resizable</td> <td>对应列是否可以通过拖动改变宽度(需要在 el-table 上设置 border 属性为真)</td> <td>boolean</td> <td>—</td> <td>true</td></tr> <tr><td>formatter</td> <td>用来格式化内容</td> <td>Function(row, column, cellValue, index)</td> <td>—</td> <td>—</td></tr> <tr><td>show-overflow-tooltip</td> <td>当内容过长被隐藏时显示 tooltip</td> <td>Boolean</td> <td>—</td> <td>false</td></tr> <tr><td>align</td> <td>对齐方式</td> <td>String</td> <td>left/center/right</td> <td>left</td></tr> <tr><td>header-align</td> <td>表头对齐方式, 若不设置该项, 则使用表格的对齐方式</td> <td>String</td> <td>left/center/right</td> <td>—</td></tr> <tr><td>class-name</td> <td>列的 className</td> <td>string</td> <td>—</td> <td>—</td></tr> <tr><td>label-class-name</td> <td>当前列标题的自定义类名</td> <td>string</td> <td>—</td> <td>—</td></tr> <tr><td>selectable</td> <td>仅对 type=selection 的列有效, 类型为 Function, Function 的返回值用来决定这一行的 CheckBox 是否可以勾选</td> <td>Function(row, index)</td> <td>—</td> <td>—</td></tr> <tr><td>reserve-selection</td> <td>仅对 type=selection 的列有效, 类型为 Boolean, 为 true 则会在数据更新之后保留之前选中的数据(需指定 <code>row-key</code> )</td> <td>Boolean</td> <td>—</td> <td>false</td></tr> <tr><td>filters</td> <td>数据过滤的选项, 数组格式, 数组中的元素需要有 text 和 value 属性.</td> <td>Array[{ text, value }]</td> <td>—</td> <td>—</td></tr> <tr><td>filter-placement</td> <td>过滤弹出框的定位</td> <td>String</td> <td>与 Tooltip 的 <code>placement</code> 属性相同</td> <td>—</td></tr> <tr><td>filter-multiple</td> <td>数据过滤的选项是否多选</td> <td>Boolean</td> <td>—</td> <td>true</td></tr> <tr><td>filter-method</td> <td>数据过滤使用的方法, 如果是多选的筛选项, 对每一条数据会执行多次, 任意一次返回 true 就会显示.</td> <td>Function(value, row, column)</td> <td>—</td> <td>—</td></tr> <tr><td>filtered-value</td> <td>选中的数据过滤项, 如果需要自定义表头过滤的渲染方式, 可能会需要此属性.</td> <td>Array</td> <td>—</td> <td>—</td></tr></tbody></table> <h2 id="events"><a href="#events" class="header-anchor">#</a> Events</h2> <table><thead><tr><th>事件名</th> <th>说明</th> <th>参数</th></tr></thead> <tbody><tr><td>max-level</td> <td>最大层级</td> <td>level</td></tr> <tr><td>row-change</td> <td>可编辑数据发生变化时触发</td> <td>row, value, prop</td></tr> <tr><td>select</td> <td>当用户手动勾选数据行的 Checkbox 时触发的事件</td> <td>selection, row</td></tr> <tr><td>select-all</td> <td>当用户手动勾选全选 Checkbox 时触发的事件</td> <td>selection</td></tr> <tr><td>selection-change</td> <td>当选择项发生变化时会触发该事件</td> <td>selection</td></tr> <tr><td>cell-mouse-enter</td> <td>当单元格 hover 进入时会触发该事件</td> <td>row, column, cell, event</td></tr> <tr><td>cell-mouse-leave</td> <td>当单元格 hover 退出时会触发该事件</td> <td>row, column, cell, event</td></tr> <tr><td>cell-click</td> <td>当某个单元格被点击时会触发该事件</td> <td>row, column, cell, event</td></tr> <tr><td>cell-dblclick</td> <td>当某个单元格被双击击时会触发该事件</td> <td>row, column, cell, event</td></tr> <tr><td>row-click</td> <td>当某一行被点击时会触发该事件</td> <td>row, column, event</td></tr> <tr><td>row-contextmenu</td> <td>当某一行被鼠标右键点击时会触发该事件</td> <td>row, column, event</td></tr> <tr><td>row-dblclick</td> <td>当某一行被双击时会触发该事件</td> <td>row, column, event</td></tr> <tr><td>header-click</td> <td>当某一列的表头被点击时会触发该事件</td> <td>column, event</td></tr> <tr><td>header-contextmenu</td> <td>当某一列的表头被鼠标右键点击时触发该事件</td> <td>column, event</td></tr> <tr><td>sort-change</td> <td>当表格的排序条件发生变化的时候会触发该事件</td> <td>{ column, prop, order }</td></tr> <tr><td>filter-change</td> <td>当表格的筛选条件发生变化的时候会触发该事件, 参数的值是一个对象, 对象的 key 是 column 的 columnKey, 对应的 value 为用户选择的筛选条件的数组.</td> <td>filters</td></tr> <tr><td>current-change</td> <td>当表格的当前行发生变化的时候会触发该事件, 如果要高亮当前行, 请打开表格的 highlight-current-row 属性</td> <td>currentRow, oldCurrentRow</td></tr> <tr><td>header-dragend</td> <td>当拖动表头改变了列的宽度的时候会触发该事件</td> <td>newWidth, oldWidth, column, event</td></tr> <tr><td>expand-change</td> <td>当用户对某一行展开或者关闭的时候会触发该事件(展开行时, 回调的第二个参数为 expandedRows; 树形表格时第二参数为 expanded)</td> <td>row, (expandedRows | expanded)</td></tr></tbody></table> <h2 id="methods"><a href="#methods" class="header-anchor">#</a> Methods</h2> <table><thead><tr><th>方法名</th> <th>说明</th> <th>参数</th></tr></thead> <tbody><tr><td>clearSelection</td> <td>用于多选表格, 清空用户的选择</td> <td>—</td></tr> <tr><td>toggleRowSelection</td> <td>用于多选表格, 切换某一行的选中状态, 如果使用了第二个参数, 则是设置这一行选中与否(selected 为 true 则选中)</td> <td>row, selected</td></tr> <tr><td>toggleAllSelection</td> <td>用于多选表格, 切换所有行的选中状态</td> <td>-</td></tr> <tr><td>toggleRowExpansion</td> <td>用于可展开表格与树形表格, 切换某一行的展开状态, 如果使用了第二个参数, 则是设置这一行展开与否(expanded 为 true 则展开)</td> <td>row, expanded</td></tr> <tr><td>setCurrentRow</td> <td>用于单选表格, 设定某一行为选中行, 如果调用时不加参数, 则会取消目前高亮行的选中状态.</td> <td>row</td></tr> <tr><td>clearSort</td> <td>用于清空排序条件, 数据会恢复成未排序的状态</td> <td>—</td></tr> <tr><td>clearFilter</td> <td>不传入参数时用于清空所有过滤条件, 数据会恢复成未过滤的状态, 也可传入由 columnKey 组成的数组以清除指定列的过滤条件</td> <td>columnKey</td></tr> <tr><td>doLayout</td> <td>对 Table 进行重新布局. 当 Table 或其祖先元素由隐藏切换为显示时, 可能需要调用此方法</td> <td>—</td></tr> <tr><td>sort</td> <td>手动对 Table 进行排序. 参数 <code>prop</code> 属性指定排序列, <code>order</code> 指定排序顺序.</td> <td>prop: string, order: string</td></tr></tbody></table></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.55ccd5d9.js" defer></script><script src="/assets/js/2.637632f4.js" defer></script><script src="/assets/js/16.e9236560.js" defer></script>
+  </body>
+</html>
